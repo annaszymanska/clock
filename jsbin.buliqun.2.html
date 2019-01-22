@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<!--
+Created using JS Bin
+http://jsbin.com
+
+Copyright (c) 2019 by annaszymanska (http://jsbin.com/buliqun/2/edit)
+
+Released under the MIT license: http://jsbin.mit-license.org
+-->
+<meta name="robots" content="noindex">
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  
+  <link href="https://fonts.googleapis.com/css?family=Amatic+SC:700" rel="stylesheet">
+  
+  <title>clock</title>
+<style id="jsbin-css">
+/* resetowanie marginesów i przestrzeni
+elementów, tak żeby centrowanie było
+jak najdokładniejsze */
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+
+
+html, body{
+  height: 100%;
+}
+
+body{
+  background-color: pink;
+}
+
+#clock {
+  background-color: lightblue;
+  border: solid seagreen 8px;
+  border-radius: 30px;
+  width: 20rem;
+  margin: 0 auto;
+  
+  text-align: center;
+  position: relative;
+  top: 50%;
+  font-family: 'Amatic SC', cursive;
+  font-size: 6rem;
+  margin-top: -3rem;
+  
+  color: white;
+}
+
+#heart {
+  font-size: 10rem;
+  position: relative;
+  text-align: center;
+  top: 10%;
+  color: white;
+  width: 20rem;
+  margin: 0 auto;
+}
+</style>
+</head>
+<body>
+  <div id="clock">12:13:14</div>
+<script id="jsbin-javascript">
+function colorClock(){
+  
+  var date = new Date();
+
+  var hours = date.getHours();
+  var minutes = date.getMinutes();
+  var seconds = date.getSeconds();
+    
+  if(seconds<10){
+    seconds = '0'+seconds;
+  }
+
+  if(minutes<10){
+    minutes = '0'+minutes;
+  }
+
+  if(hours<10){
+    hours='0'+hours;
+  }
+
+  
+  /* ustawienie dynamicznie koloru przy pomocy liczb
+     określających czas, jako że jest ich też 6 :) */  
+  var hexColor = '#' + hours + minutes + seconds;
+  
+  
+  var clockFace = hours+':' +minutes + ':'+seconds;
+
+
+  document.getElementById('clock').innerHTML = clockFace;
+  
+  document.getElementById('clock').style.background = hexColor;
+
+  setTimeout(function(){
+  colorClock();
+}, 1000);
+}
+
+
+colorClock();
+
+ 
+
+</script>
+</body>
+</html>
