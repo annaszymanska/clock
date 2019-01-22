@@ -1,2 +1,2 @@
 # clock
-project of clock that is changing color every second, using JS
+project of a clock that is changing color every second, using JS
